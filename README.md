@@ -1,40 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# MediNotes AI
 
-## Getting Started
+An AI-powered healthcare SaaS application that helps doctors convert consultation notes into structured medical summaries, next steps, and patient-friendly email drafts. Built as a full-stack app with secure authentication, subscription-based access, and real-time AI streaming on Vercel. :contentReference[oaicite:0]{index=0}
 
-First, run the development server:
+## Features
+
+- Secure user authentication with Clerk
+- Subscription-based access control with Clerk Billing
+- AI-generated consultation summaries
+- Doctor action items from visit notes
+- Patient-friendly email drafting
+- Real-time streaming responses
+- Clean and responsive UI
+- Serverless deployment on Vercel
+
+## Tech Stack
+
+Next.js, React, TypeScript, Tailwind CSS, FastAPI, Pydantic, OpenAI API, Clerk Authentication, Clerk Billing, Vercel :contentReference[oaicite:1]{index=1} :contentReference[oaicite:2]{index=2} :contentReference[oaicite:3]{index=3}
+
+## Project Overview
+
+MediNotes AI is designed for healthcare professionals who want to reduce time spent on manual documentation. The application accepts consultation details such as patient name, date of visit, and doctor notes, then generates three structured outputs:
+
+- Summary of visit for medical records
+- Next steps for the doctor
+- Draft email to the patient in patient-friendly language
+
+This healthcare workflow is described in the project transformation steps from the uploaded notes. :contentReference[oaicite:4]{index=4} :contentReference[oaicite:5]{index=5}
+
+## How It Works
+
+1. Users sign in securely using Clerk
+2. Access to the product is protected by subscription checks
+3. Doctors enter consultation details into the form
+4. The frontend sends authenticated requests to the FastAPI backend
+5. The backend verifies JWT tokens using Clerk
+6. OpenAI generates structured healthcare output
+7. Results are streamed back to the UI in real time
+
+This architecture follows the app flow defined across the SaaS, Clerk auth, billing, and healthcare setup files. :contentReference[oaicite:6]{index=6} :contentReference[oaicite:7]{index=7} :contentReference[oaicite:8]{index=8} :contentReference[oaicite:9]{index=9}
+
+## Folder Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+.
+├── pages/              # Next.js frontend pages
+├── api/                # FastAPI backend
+├── styles/             # Global styles
+├── public/             # Static assets
+├── requirements.txt    # Python dependencies
+├── package.json        # Frontend dependencies
+└── .env.local          # Environment variables
